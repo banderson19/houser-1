@@ -14,5 +14,5 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstan
 
 app.get('/api/listings', controller.getAll);
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 app.listen(port, () => {console.log(`server listening on port ${port}`)});
