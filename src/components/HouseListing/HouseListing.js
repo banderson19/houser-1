@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import axios from 'axios';
 
 export default class HouseListing extends Component {
@@ -10,15 +11,15 @@ export default class HouseListing extends Component {
         }
     }
 
-    componentDidMount = () => {
-        axios({
-            method: 'GET',
-            url: `http://localhost:3001/api/listings`
-        }).then(response => {
-            console.log(response.data) 
-            this.setState({listings: response.data})
-        })
-    }
+    // componentDidMount = () => {
+    //     axios({
+    //         method: 'GET',
+    //         url: `http://localhost:3001/api/listings`
+    //     }).then(response => {
+    //         console.log(response.data) 
+    //         this.setState({listings: response.data})
+    //     })
+    // }
 
     render() {
         return (

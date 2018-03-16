@@ -1,11 +1,17 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Route, HashRouter as Router } from 'react-router-dom'
 import HouseListings from './components/HouseListing/HouseListing'
+import WizardOne from './components/WizardOne/WizardOne'
+import WizardTwo from './components/WizardTwo/WizardTwo'
+
 
 export default (
-    <Switch>
-        {/* <Route component = {Login} exact path="/"/> */}
-        <Route component = {HouseListings} path="/listings"/>
-        {/* <Route component = {Item} path="/api/shelfs/:shelf_id/:bin_id"/> */}
-    </Switch>
+    <Router>
+        <div>
+            {/* <Route component = {Login} exact path="/"/> */}
+            <Route component = {HouseListings} path="/listings"/>
+            <Route component = {WizardOne} path="/wizardone"/>
+            <Route component = {WizardTwo} path="/wizardtwo"/>
+        </div>
+    </Router>
 )
