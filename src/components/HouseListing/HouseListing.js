@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 
-export default class HouseListing extends Component {
+class HouseListing extends Component {
     constructor() {
         super()
         this.state = {
@@ -25,14 +25,27 @@ export default class HouseListing extends Component {
         return (
             <div className="App">
             <h1>Hello</h1>
-                {this.state.listings.map( (listing, i) => {
-                    return (
-                        <div key={i}>{listing.house_name}</div>
-                    )
-                })}
+            <Link to="wizardone"><button>Add new property</button></Link>
+                {this.state.propertyName}
 
             </div>
         )
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        propertyName: state.propertyName,
+        propertyDescription: state.propertyDescription,
+        address: state.address,
+        city: state.city,
+        location: state.location,
+        zip: state.zip,
+        url: state.url,
+        loanAmount: state.loanAmount,
+        monthlyMortgage: state.monthlyMortgage,
+        desiredRent: state.desiredRent
+    }
+} 
+
+export default connect(mapStateToProps)(HouseListing)

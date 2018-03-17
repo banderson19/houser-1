@@ -20,7 +20,8 @@ class WizardOne extends Component {
                     <span>Property Description</span>
                     <input type="text" placeholder="" onChange={ (e) => updatePropertyDescription(e.target.value) }/>
                 </div>
-                <button>Next Step</button>
+
+                <Link to="/wizardtwo"><button>Next Step</button></Link>
             </div>
         )
 

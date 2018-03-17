@@ -3,16 +3,24 @@ const initialState = {
     propertyDescription: '',
     address: '',
     city: '',
-    state: '',
-    zip: 0
+    location: '',
+    zip: 0,
+    url: '',
+    loanAmount: 0,
+    monthlyMortgage: 0,
+    desiredRent: 0
 }
 
 const UPDATE_PROPERTY_NAME = 'UPDATE_PROPERTY_NAME';
 const UPDATE_PROPERTY_DESCRIPTION = 'UPDATE_PROPERTY_DESCRIPTION';
 const UPDATE_ADDRESS = 'UPDATE_ADDRESS';
 const UPDATE_CITY = 'UPDATE_CITY';
-const UPDATE_STATE = 'UPDATE_STATE';
+const UPDATE_LOCATION = 'UPDATE_LOCATION';
 const UPDATE_ZIP = 'UPDATE_ZIP';
+const UPDATE_URL = 'UPDATE_URL';
+const UPDATE_LOAN_AMOUNT = 'UPDATE_LOAN_AMOUNT';
+const UPDATE_MONTHLY_MORTGAGE = 'UPDATE_MONTHLY_MORTGAGE';
+const UPDATE_DESIRED_RENT = 'UPDATE_DESIRED_RENT';
 
 
 function reducer(state = initialState, action) {
@@ -29,12 +37,23 @@ function reducer(state = initialState, action) {
         case UPDATE_CITY:
             return Object.assign( {}, state, {city: action.payload});
         
-        case UPDATE_STATE:
-            return Object.assign( {}, state, {state: action.payload});
+        case UPDATE_LOCATION:
+            return Object.assign( {}, state, {location: action.payload});
         
         case UPDATE_ZIP: 
             return Object.assign( {}, state, {zip: action.payload});
-            
+
+        case UPDATE_URL:
+            return Object.assign( {}, state, {url: action.payload});
+        
+        case UPDATE_LOAN_AMOUNT: 
+            return Object.assign( {}, state, {loanAmount: action.payload});
+
+        case UPDATE_MONTHLY_MORTGAGE:
+            return Object.assign( {}, state, {monthlyMortgage: action.payload});
+
+        case UPDATE_DESIRED_RENT:
+            return Object.assign( {}, state, {desiredRent: action.payload});
 
         default: return state
     }
@@ -72,11 +91,11 @@ export function updateCity(city) {
     }
 }
 
-export function updateState(state) {
-    console.log('prop-->', state)
+export function updateLocation(location) {
+    console.log('prop-->', location)
     return {
-        type: UPDATE_STATE,
-        payload: state
+        type: UPDATE_LOCATION,
+        payload: location
     }
 }
 
@@ -85,6 +104,38 @@ export function updateZip(zip) {
     return {
         type: UPDATE_ZIP,
         payload: zip
+    }
+}
+
+export function updateUrl(url) {
+    console.log('prop-->', url)
+    return {
+        type: UPDATE_URL,
+        payload: url
+    }
+}
+
+export function updateLoanAmount(loanAmount) {
+    console.log('prop-->', loanAmount)
+    return {
+        type: UPDATE_LOAN_AMOUNT,
+        payload: loanAmount
+    }
+}
+
+export function updateMonthlyMortgage(monthlyMortgage){
+    console.log('prop-->', monthlyMortgage)
+    return {
+        type: UPDATE_MONTHLY_MORTGAGE,
+        payload: monthlyMortgage
+    }
+}
+
+export function updateDesiredRent(desiredRent) {
+    console.log('prop-->', desiredRent)
+    return {
+        type: UPDATE_DESIRED_RENT,
+        payload: desiredRent
     }
 }
 
