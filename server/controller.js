@@ -10,10 +10,8 @@ module.exports = {
 
     addInfo: (req, res, next) => {
         const dbInstance = req.app.get('db');
-        const {propertyName} = req.body;
-        console.log('will e even see this')
-        console.log('This is the property name', propertyName)
-        dbInstance.add_info([propertyName])
+        const {propertyName, propertyDescription, address, city, location, zip, url, loanAmount, monthlyMortgage, desiredRent} = req.body;
+        dbInstance.add_info([propertyName, propertyDescription, address, city, location, zip, url, loanAmount, monthlyMortgage, desiredRent])
         .then(listing => {
             res.status(200).send(listing)
         }).catch(err => {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
+import './WizardOne.css';
+
 import {connect} from 'react-redux';
 import { updatePropertyName, updatePropertyDescription } from './../../redux/reducers/reducer';
 

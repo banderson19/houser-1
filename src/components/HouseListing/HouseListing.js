@@ -11,22 +11,36 @@ class HouseListing extends Component {
         }
     }
 
-    // componentDidMount = () => {
-    //     axios({
-    //         method: 'GET',
-    //         url: `http://localhost:3001/api/listings`
-    //     }).then(response => {
-    //         console.log(response.data) 
-    //         this.setState({listings: response.data})
-    //     })
-    // }
+    componentDidMount = () => {
+        axios({
+            method: 'GET',
+            url: `http://localhost:3001/api/listings`
+        }).then(response => {
+            console.log(response.data) 
+            this.setState({listings: response.data})
+        })
+    }
 
     render() {
         return (
             <div className="App">
             <h1>Hello</h1>
             <Link to="wizardone"><button>Add new property</button></Link>
-                {this.state.propertyName}
+                {this.state.listings.map (listing => {
+                    return (
+                        <div>
+                            <div>{listing.property_name}</div>
+                            <div>{listing.property_description}</div>
+                            <div>{listing.address}</div>
+                            <div>{listing.city}</div>
+                            <div>{listing.location}</div>
+                            <div>{listing.zip}</div>
+                            <div>{listing.loan_amount}</div>
+                            <div>{listing.monthly_mortgage}</div>
+                            <div>{listing.desired_rent}</div>
+                        </div>
+                    )
+                })}
 
             </div>
         )
